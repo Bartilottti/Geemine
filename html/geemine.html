@@ -14,6 +14,7 @@
       <img src="img/logo.png" alt="Logo Geemine" width="70" height="auto">
       <h1 class="title">GEEMINE</h1>
     </div>
+    <!--Fazer uma segunda página (capa) com link no sobre nós-->
     <nav>
       <a class="about" href="about">Sobre nós</a>
     </nav>
@@ -55,15 +56,30 @@
         </figure>
     </section>
   </main>
-  <footer>
+  <main>
+    <article class="slide-show">
+      <h1>Geemine</h1>
+      <div class="container-slider">
+        <button onclick="prevSlider" id="prev-button"><img src="img/left-arrow.png" alt="prev-button"></button>
+        <div class="container-images">
+          <img src="img/img_mountains_wide.jpg" alt="project-geemine" class="slider on">
+          <img src="img/img_nature_wide.jpg" alt="project-geemine" class="slider">
+          <img src="img/img_snow_wide.jpg" alt="project-geemine" class="slider">
+        </div>
+        <button onclick="nextSlider" id="next-button"><img src="img/right-arrow.png" alt="next-button"></button>
+    </article>
+  </main>
+  <footer class="footer1">
     <div class="logo">
       <img src="img/logo.png" alt="Geemine"  width="55" height="auto">
       <h2 class="title">© copyright 2024 - UJ estudantes<br>Av. Tancredo Neves 1367 (Caminho das Árvores), Salvador, BA</h2>
     </div>
+      <!--precisa fazer o WhatsApp e o email para cira o instagram e adcionar o link útil dos 2-->
     <div>
-    <a href="#"><img src="img/Icon.zapzap.png" alt="Whatsapp" width="55" height="auto" align-items="end"></a>
-    <a href="#"><img src="img/Insta.png" alt="Instagram" width="55" height="auto"></a>
+    <a href="#"><img src="img/iconwhats.png" alt="Whatsapp" width="55" height="auto" align-items="end"></a>
+    <a href="#"><img src="img/iconinsta.png" alt="Instagram" width="55" height="auto"></a>
   </div>
   </footer>
+  <script src="./script.js"></script>
 </body>
 </html>
