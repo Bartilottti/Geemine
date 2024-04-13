@@ -25,13 +25,14 @@ button {
     border: none;
     font-size: 20px;
     border-radius: 8px;
-    transition: 0.3s;
 }
 button:hover {
     background: #519cff;
     transition: 0.3s;
 }
 button:active {
-    background-color: #306ab6;
-    transition: 0.3s;
+    background-color: #5bf538;
+  }
+.on {
+  background: #5bf538;
 }
