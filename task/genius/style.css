@@ -1,0 +1,37 @@
+body {
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+    color: #0e0e0e;
+}
+.tittle{
+    text-align: center;
+    font-family: monospace;
+    font-size: 46px;
+}
+.pads {
+    margin: 10px auto;
+    width: 400px;
+    height: 400px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+button {
+    background: #3f92ff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+button:hover {
+    background: #519cff;
+    transition: 0.3s;
+}
+button:active {
+    background-color: #306ab6;
+    transition: 0.3s;
+}
