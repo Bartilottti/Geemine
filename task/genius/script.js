@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('.pad');
+// const buttons = document.querySelectorAll('.pad');
 
 let sequence = [];
 let playerSequence = [];
@@ -17,17 +17,21 @@ function AddToSequence() {
  }, 1000)
 }
 function PlaySequence() {
-  buttons.forEach( button => {
-    button.classList.remove('on'); 
-  })
-  sequence.forEach((index) => {
-    setTimeout(() => {
-      buttons[index - 1].classList.add('on');
-      setTimeout(() => {
-        PlaySound();
-      }, 500);
+  let index = 0;
+  const intervalId = setInterval(() => {
+    const button = sequence[index];
+    const buttonElement = document.getElementById(`button${button}`);
+
+    buttonElement.classList.add('on');
+    setInterval(() => {
+      buttonElement.classList.remove('on');
     }, 1000);
-  });
+    PlaySound();
+    index++;
+    if (index >= sequence.length) {
+      clearInterval(intervalId);
+    }
+  }, 1000);
 }
 function CheckAnswer() {
   for (let i = 0; i < playerSequence.length; i++) {
@@ -45,6 +49,7 @@ function CheckAnswer() {
   }
   if (level === 10) {
     alert('You win! Yeah!');
+    return;
   }
 }
 function HandleButtonClick(buttonNumber) {
@@ -61,9 +66,6 @@ function RestartGame() {
 function GameOver() {
   alert('Game Over! Your score: ' + (level - 1));
   console.log('Game Over!');
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].classList.remove('on');
-  }
 }
 document.addEventListener('keydown', (event) => {
   const key = parseInt(event.key);
