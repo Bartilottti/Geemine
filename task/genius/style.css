@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     color: #0e0e0e;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .tittle{
     text-align: center;
@@ -28,11 +31,16 @@ button {
 }
 button:hover {
     background: #519cff;
-    transition: 0.3s;
+  scale: 112%;
+    transition: 0.1s;
 }
 button:active {
     background-color: #5bf538;
   }
+.start {
+  background: black;
+  margin: 10px auto;
+}
 .on {
   background: #5bf538;
 }
