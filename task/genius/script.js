@@ -1,5 +1,3 @@
-// const buttons = document.querySelectorAll('.pad');
-
 let sequence = [];
 let playerSequence = [];
 let level = 1;
