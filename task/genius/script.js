@@ -13,6 +13,12 @@ function AddToSequence() {
 }
 function PlaySequence() {
   let index = 0;
+
+  const buttons = document.querySelectorAll('.pad');
+    buttons.forEach(button => {
+    button.disabled = true;
+  })
+
   const intervalId = setInterval(() => {
     const button = sequence[index];
     const buttonElement = document.getElementById(`button${button}`);
@@ -27,6 +33,10 @@ function PlaySequence() {
       clearInterval(intervalId);
     }
   }, 1000);
+
+  buttons.forEach( button => {
+    button.disabled = false;
+  })
 }
 function CheckAnswer() {
   for (let i = 0; i < playerSequence.length; i++) {
