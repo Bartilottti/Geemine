@@ -9,10 +9,7 @@ function PlaySound() {
 function AddToSequence() {
   const randomButton = Math.floor(Math.random() * 9) + 1;
   sequence.push(randomButton);
-  setTimeout(() => {
-    PlaySequence();
-    
- }, 1000)
+  PlaySequence();
 }
 function PlaySequence() {
   let index = 0;
@@ -21,9 +18,9 @@ function PlaySequence() {
     const buttonElement = document.getElementById(`button${button}`);
 
     buttonElement.classList.add('on');
-    setInterval(() => {
+    setTimeout(() => {
       buttonElement.classList.remove('on');
-    }, 1000);
+    }, 500);
     PlaySound();
     index++;
     if (index >= sequence.length) {
