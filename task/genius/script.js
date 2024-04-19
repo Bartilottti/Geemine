@@ -9,7 +9,7 @@ function PlaySound() {
 function AddToSequence() {
   const randomButton = Math.floor(Math.random() * 9) + 1;
   sequence.push(randomButton);
-    PlaySequence();
+  PlaySequence();
 }
 function PlaySequence() {
   let index = 0;

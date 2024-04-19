@@ -21,7 +21,7 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
 }
-button {
+.pad {
     background: #3f92ff;
     color: white;
     font-weight: bold;
@@ -33,9 +33,24 @@ button:active {
     background-color: #5bf538;
   }
 .start {
-  background: black;
+  padding: 4px 7px;
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 8px;
   margin: 10px auto;
+  cursor: pointer;
+}
+.start:active{
+  background: #e6e6fa;
 }
 .on {
   background: #5bf538;
+}
+@media screen and (max-width: 480px) {
+  .pads { 
+    width: 250px;
+    height: 250px;
+  }
 }
