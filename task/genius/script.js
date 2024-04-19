@@ -18,9 +18,9 @@ function PlaySequence() {
     const buttonElement = document.getElementById(`button${button}`);
 
     buttonElement.classList.add('on');
-    setInterval(() => {
+    setTimeout(() => {
       buttonElement.classList.remove('on');
-    }, 1000);
+    }, 500);
     PlaySound();
     index++;
     if (index >= sequence.length) {
