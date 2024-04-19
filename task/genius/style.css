@@ -29,11 +29,6 @@ button {
     font-size: 20px;
     border-radius: 8px;
 }
-button:hover {
-    background: #519cff;
-  scale: 112%;
-    transition: 0.1s;
-}
 button:active {
     background-color: #5bf538;
   }
