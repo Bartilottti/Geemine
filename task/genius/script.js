@@ -3,8 +3,8 @@ let playerSequence = [];
 let level = 1;
 
 function PlaySound() {
-  // Essa função será reconstruida quando for disponibilizado os efeitos sonoros para as teclas
   console.log(sequence);
+  // Essa função será reconstruida quando for disponibilizado os efeitos sonoros para as teclas
 }
 function AddToSequence() {
   const randomButton = Math.floor(Math.random() * 9) + 1;
@@ -13,12 +13,8 @@ function AddToSequence() {
 }
 function PlaySequence() {
   let index = 0;
-
-  const buttons = document.querySelectorAll('.pad');
-    buttons.forEach(button => {
-    button.disabled = true;
-  })
-
+  const cover = document.getElementById('coverLayer');
+  cover.style.pointerEvents = 'auto';
   const intervalId = setInterval(() => {
     const button = sequence[index];
     const buttonElement = document.getElementById(`button${button}`);
@@ -31,12 +27,9 @@ function PlaySequence() {
     index++;
     if (index >= sequence.length) {
       clearInterval(intervalId);
+      cover.style.pointerEvents = 'none';
     }
   }, 1000);
-
-  buttons.forEach( button => {
-    button.disabled = false;
-  })
 }
 function CheckAnswer() {
   for (let i = 0; i < playerSequence.length; i++) {
