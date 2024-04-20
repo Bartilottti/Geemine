@@ -28,3 +28,27 @@ header {
     gap: 10px;
     align-items: center;
 }
+
+.capa {
+    text-align: center;
+    color: #ffffff;
+    font-family: "Bree Serif " , serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+li {
+    list-style-type: none;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0;
+    background-color: #26a3ea;
+}
+
+
