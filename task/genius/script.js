@@ -2,9 +2,9 @@ let sequence = [];
 let playerSequence = [];
 let level = 1;
 
-// Essa função será reconstruida quando for disponibilizado os efeitos sonoros para as teclas
 function PlaySound() {
   console.log(sequence);
+  // Essa função será reconstruida quando for disponibilizado os efeitos sonoros para as teclas
 }
 function AddToSequence() {
   const randomButton = Math.floor(Math.random() * 9) + 1;
@@ -13,6 +13,8 @@ function AddToSequence() {
 }
 function PlaySequence() {
   let index = 0;
+  const cover = document.getElementById('coverLayer');
+  cover.style.pointerEvents = 'auto';
   const intervalId = setInterval(() => {
     const button = sequence[index];
     const buttonElement = document.getElementById(`button${button}`);
@@ -25,6 +27,7 @@ function PlaySequence() {
     index++;
     if (index >= sequence.length) {
       clearInterval(intervalId);
+      cover.style.pointerEvents = 'none';
     }
   }, 1000);
 }
@@ -51,6 +54,11 @@ function HandleButtonClick(buttonNumber) {
   playerSequence.push(buttonNumber);
   PlaySound(buttonNumber);
   CheckAnswer();
+  const buttonElement = document.getElementById(`button${buttonNumber}`);
+  buttonElement.classList.add('on');
+  setTimeout(() => {
+    buttonElement.classList.remove('on');
+  }, 500);
 }
 function RestartGame() {
   sequence = [];
@@ -67,4 +75,4 @@ document.addEventListener('keydown', (event) => {
   if (key >= 1 && key <= 9) {
     HandleButtonClick(key);
   }
-  });
+});
