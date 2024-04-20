@@ -1,12 +1,15 @@
 body {
-    background-color: aliceblue;
+    background-color: #0e0e0e;
     margin: 0;
     padding: 0;
-    color: #0e0e0e;
+    color: white;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
+* {
+    font-family: monospace;
+   }
 #coverLayer {
   position: fixed;
   top: 0;
@@ -19,11 +22,14 @@ body {
 }
 .tittle{
     text-align: center;
-    font-family: monospace;
     font-size: 46px;
 }
+em {
+  font-size: 25px;
+  color: #da0707;
+}
 .pads {
-    margin: 10px auto;
+    margin: 5px auto;
     width: 400px;
     height: 400px;
     display: grid;
@@ -44,19 +50,25 @@ button:active {
   }
 .start {
   padding: 4px 7px;
-  color: black;
+  color: white;
   font-weight: 700;
   font-size: 20px;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 8px;
-  margin: 10px auto;
+  margin: 5px auto;
   cursor: pointer;
+  background: transparent;
 }
 .start:active{
   background: #e6e6fa;
 }
 .on {
   background: #5bf538;
+}
+.version {
+  font-weight: 800;
+  text-align: right;
+  margin: 10px;
 }
 @media screen and (max-width: 480px) {
   .pads { 
