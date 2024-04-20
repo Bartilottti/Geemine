@@ -37,6 +37,10 @@ function CheckAnswer() {
       GameOver();
       return;
     }
+    if (sequence.length === 11) {
+      GameWin();
+      return;
+    }
   }
   if (playerSequence.length === sequence.length) {
     level++;
@@ -45,16 +49,14 @@ function CheckAnswer() {
       AddToSequence();
     }, 1000);
   }
-  if (level === 10) {
-    alert('You win! Yeah!');
-    return;
-  }
 }
 function HandleButtonClick(buttonNumber) {
   playerSequence.push(buttonNumber);
   PlaySound(buttonNumber);
   CheckAnswer();
+
   const buttonElement = document.getElementById(`button${buttonNumber}`);
+
   buttonElement.classList.add('on');
   setTimeout(() => {
     buttonElement.classList.remove('on');
@@ -66,8 +68,12 @@ function RestartGame() {
   level = 1;
   AddToSequence();
 }
+function GameWin() {
+  alert(`You Win! Your score: ${level}. Thank you for taking this exam :)`);
+  console.log('You Win!');
+}
 function GameOver() {
-  alert('Game Over! Your score: ' + (level - 1));
+  alert(`Game Over! your score: ${level - 1}`);
   console.log('Game Over!');
 }
 document.addEventListener('keydown', (event) => {
