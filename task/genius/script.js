@@ -11,7 +11,9 @@ const sounds = {
   6 : './audio/audio6.mp3',
   7 : './audio/audio7.mp3',
   8 : './audio/audio8.mp3',
-  9 : './audio/audio9.mp3'
+  9 : './audio/audio9.mp3',
+  10 : './audio/correctSong.mp3',
+  11 : './audio/wrongSong.mp3'
 };
 
 function PlaySound(soundFile) {
@@ -55,6 +57,7 @@ function CheckAnswer() {
   }
   if (playerSequence.length === sequence.length) {
     level++;
+    PlaySound(sounds[10]);
     playerSequence = [];
     setTimeout(() => {
       AddToSequence();
@@ -84,6 +87,7 @@ function GameWin() {
   console.log('You Win!');
 }
 function GameOver() {
+  PlaySound(sounds[11]);
   alert(`Game Over! your score: ${level - 1}`);
   sequence = [];
   playerSequence = [];
