@@ -1,8 +1,6 @@
 let sequence = [];
 let playerSequence = [];
 let level = 1;
-let speed = 300;
-let speed2 = 800;
 
 const sounds = {
   1 : './audio/audio1.mp3',
@@ -13,7 +11,9 @@ const sounds = {
   6 : './audio/audio6.mp3',
   7 : './audio/audio7.mp3',
   8 : './audio/audio8.mp3',
-  9 : './audio/audio9.mp3'
+  9 : './audio/audio9.mp3',
+  10 : './audio/correctSong.mp3',
+  11 : './audio/wrongSong.mp3'
 };
 
 function PlaySound(soundFile) {
@@ -35,16 +35,14 @@ function PlaySequence() {
     buttonElement.classList.add('on');
     setTimeout(() => {
       buttonElement.classList.remove('on');
-    }, speed);
+    }, 300);
     PlaySound(sounds[button]);
     index++;
     if (index >= sequence.length) {
       clearInterval(intervalId);
       cover.style.pointerEvents = 'none';
     }
-  }, speed2);
-  speed -= 10;
-  speed2 -= 30;
+  }, 800);
 }
 function CheckAnswer() {
   for (let i = 0; i < playerSequence.length; i++) {
@@ -59,6 +57,7 @@ function CheckAnswer() {
   }
   if (playerSequence.length === sequence.length) {
     level++;
+    PlaySound(sounds[10]);
     playerSequence = [];
     setTimeout(() => {
       AddToSequence();
@@ -88,6 +87,7 @@ function GameWin() {
   console.log('You Win!');
 }
 function GameOver() {
+  PlaySound(sounds[11]);
   alert(`Game Over! your score: ${level - 1}`);
   sequence = [];
   playerSequence = [];
