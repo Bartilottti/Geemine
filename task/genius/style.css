@@ -24,10 +24,6 @@ body {
     text-align: center;
     font-size: 46px;
 }
-em {
-  font-size: 25px;
-  color: #da0707;
-}
 .pads {
     margin: 5px auto;
     width: 400px;
