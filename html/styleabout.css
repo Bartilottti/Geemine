@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
+* {
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
 
 body {
     background-color: #1D1D1D;
     margin: 0;
+    padding: 0;
 }
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     height: 100px;
     padding: 10px;
@@ -25,6 +30,35 @@ header {
 
 .logo {
     display: flex;
-    gap: 10px;
     align-items: center;
+    width: 100%;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.capa {
+    color: #ffffff;
+    font-family: "Bree Serif ", serif;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 35px;
+    margin: 10px 100px;
+}
+
+li {
+    list-style-type: none;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0;
+    background-color: #26a3ea;
+    bottom: 0;
+}
+
+.uj {
+    text-align: center;
 }
