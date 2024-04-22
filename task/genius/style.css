@@ -1,19 +1,35 @@
 body {
-    background-color: aliceblue;
+    background-color: #0e0e0e;
     margin: 0;
     padding: 0;
-    color: #0e0e0e;
+    color: white;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
+* {
+    font-family: monospace;
+   }
+#coverLayer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 1;
+  pointer-events: none;
+}
 .tittle{
     text-align: center;
-    font-family: monospace;
     font-size: 46px;
 }
+em {
+  font-size: 25px;
+  color: #da0707;
+}
 .pads {
-    margin: 10px auto;
+    margin: 5px auto;
     width: 400px;
     height: 400px;
     display: grid;
@@ -21,7 +37,7 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
 }
-button {
+.pad {
     background: #3f92ff;
     color: white;
     font-weight: bold;
@@ -29,18 +45,34 @@ button {
     font-size: 20px;
     border-radius: 8px;
 }
-button:hover {
-    background: #519cff;
-  scale: 112%;
-    transition: 0.1s;
-}
 button:active {
     background-color: #5bf538;
   }
 .start {
-  background: black;
-  margin: 10px auto;
+  padding: 4px 7px;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  border: 2px solid white;
+  border-radius: 8px;
+  margin: 5px auto;
+  cursor: pointer;
+  background: transparent;
+}
+.start:active{
+  background: #e6e6fa;
 }
 .on {
   background: #5bf538;
+}
+.version {
+  font-weight: 800;
+  text-align: right;
+  margin: 10px;
+}
+@media screen and (max-width: 480px) {
+  .pads { 
+    width: 250px;
+    height: 250px;
+  }
 }

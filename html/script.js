@@ -1,4 +1,4 @@
-const slider = document.querySelectorAll('slider');
+const slider = document.querySelectorAll('.slider');
 const btnPrev = document.getElementById('prev-button');
 const btnNext = document.getElementById('next-button');
 
@@ -14,7 +14,7 @@ function showSlider() {
 
 function nextSlider() {
   hideSlider()
-  if(currentSlide === slider.length - 1) {
+  if(currentSlide === slider.length -1) {
     currentSlide = 0
   } else {
     currentSlide++
@@ -25,7 +25,7 @@ function nextSlider() {
 function prevSlider() {
   hideSlider()
   if(currentSlide === 0) {
-    currentSlide = slider.length - 1
+    currentSlide = slider.length -1
   } else {
     currentSlide--
   }

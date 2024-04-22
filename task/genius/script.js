@@ -1,40 +1,59 @@
 let sequence = [];
 let playerSequence = [];
 let level = 1;
+let speed = 300;
+let speed2 = 800;
 
-// Essa função será reconstruida quando for disponibilizado os efeitos sonoros para as teclas
-function PlaySound() {
-  console.log(sequence);
+const sounds = {
+  1 : './audio/audio1.mp3',
+  2 : './audio/audio2.mp3',
+  3 : './audio/audio3.mp3',
+  4 : './audio/audio4.mp3',
+  5 : './audio/audio5.mp3',
+  6 : './audio/audio6.mp3',
+  7 : './audio/audio7.mp3',
+  8 : './audio/audio8.mp3',
+  9 : './audio/audio9.mp3'
+};
+
+function PlaySound(soundFile) {
+  const audio = new Audio(soundFile);
+  audio.play();
 }
 function AddToSequence() {
   const randomButton = Math.floor(Math.random() * 9) + 1;
   sequence.push(randomButton);
-  setTimeout(() => {
-    PlaySequence();
-    
- }, 1000)
+  PlaySequence();
 }
 function PlaySequence() {
   let index = 0;
+  const cover = document.getElementById('coverLayer');
+  cover.style.pointerEvents = 'auto';
   const intervalId = setInterval(() => {
     const button = sequence[index];
     const buttonElement = document.getElementById(`button${button}`);
-
     buttonElement.classList.add('on');
-    setInterval(() => {
+    setTimeout(() => {
       buttonElement.classList.remove('on');
-    }, 1000);
-    PlaySound();
+    }, speed);
+    PlaySound(sounds[button]);
     index++;
     if (index >= sequence.length) {
       clearInterval(intervalId);
+      cover.style.pointerEvents = 'none';
     }
-  }, 1000);
+  }, speed2);
+  speed -= 10;
+  speed2 -= 30;
 }
 function CheckAnswer() {
   for (let i = 0; i < playerSequence.length; i++) {
     if (playerSequence[i] !== sequence[i]) {
       GameOver();
+      return;
+    }
+    if (level === 17) {
+      GameWin();
       return;
     }
   }
@@ -45,15 +64,18 @@ function CheckAnswer() {
       AddToSequence();
     }, 1000);
   }
-  if (level === 10) {
-    alert('You win! Yeah!');
-    return;
-  }
 }
 function HandleButtonClick(buttonNumber) {
   playerSequence.push(buttonNumber);
   PlaySound(buttonNumber);
   CheckAnswer();
+
+  const buttonElement = document.getElementById(`button${buttonNumber}`);
+
+  buttonElement.classList.add('on');
+  setTimeout(() => {
+    buttonElement.classList.remove('on');
+  }, 300);
 }
 function RestartGame() {
   sequence = [];
@@ -61,8 +83,15 @@ function RestartGame() {
   level = 1;
   AddToSequence();
 }
+function GameWin() {
+  alert(`You Win! Your score: ${level}. Thank you for taking this exam :)`);
+  console.log('You Win!');
+}
 function GameOver() {
-  alert('Game Over! Your score: ' + (level - 1));
+  alert(`Game Over! your score: ${level - 1}`);
+  sequence = [];
+  playerSequence = [];
+  level = 1;
   console.log('Game Over!');
 }
 document.addEventListener('keydown', (event) => {
@@ -70,4 +99,4 @@ document.addEventListener('keydown', (event) => {
   if (key >= 1 && key <= 9) {
     HandleButtonClick(key);
   }
-  });
+});
