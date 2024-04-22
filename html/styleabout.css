@@ -63,28 +63,62 @@ footer {
 .uj {
     text-align: center;
 }
-
-@media screen and (max-width: 532px) {
-body {
-    margin: 0;
+.titlefooter {
+color: white;
+font-family: "Bree Serif", serif;
+font-weight: 200;
+margin: 0;
 }
 
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-}
+@media screen and (max-width: 480px) {
 
-main {
-    margin-top: 40px ;
-    margin-bottom: 40px;
-    height: calc(100vh - 120px);
-    overflow-y: auto;
-}
+    header,
+    footer {
+        justify-content: center;
+    }
 
-footer {
-    position: fixed;
-    width: 100%;
-    font-size: 5vw;
-}
+    header {
+        height: 60px;
+        padding: 5px;
+    }
+
+    .title,
+    .capa {
+        font-size: 20px;
+    }
+
+    .capa {
+        margin: 10px 20px;
+        font-size: 25px;
+    }
+
+    footer {
+        height: 60px;
+    }
+
+    .titlefooter {
+        font-size: 1em;
+    }
+
+    .logo {
+        width: auto;
+        gap: 5px; 
+    }
+
+    .logo img {
+        width: 50px;
+        height: auto;
+    }
+
+    li {
+        font-size: 16px;
+    }
+
+    body, html {
+        overflow-x: hidden; 
+    }
+    .uj img {
+        max-width: 100%;
+        height: auto;
+    }
 }
